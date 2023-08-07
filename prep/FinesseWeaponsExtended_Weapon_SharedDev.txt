@@ -98,6 +98,13 @@ type "Weapon"
 using "WPN_Longsword"
 data "RootTemplate" "a4338d7c-5b70-4076-9711-d3803fab2e1b"
 
+new entry "WPN_Club_WoodWoad_Conjure"
+type "Weapon"
+using "WPN_WoodWoad_Club"
+data "Boosts" ""
+data "BoostsOnEquipMainHand" ""
+data "PassivesOnEquip" "WoodWoad_MagicClub"
+
 new entry "WPN_Glaive_Cambion"
 type "Weapon"
 using "WPN_Glaive"
