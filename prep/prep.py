@@ -30,7 +30,7 @@ def get_options(args):
     return source, target
 
 
-def parse(source, weapons=["Club", "Flail", "Longsword", "Glaive", "Handaxe", "Spear", "Trident", "Quarterstaff"]):
+def parse(source, weapons=["Club", "Flail", "Longsword", "Glaive", "Handaxe", "Sickle", "Spear", "Trident", "Quarterstaff"]):
     data = {}
     wpn_group_re = "WPN_({})".format('|'.join(weapons))
     with open(source, "r") as f:
