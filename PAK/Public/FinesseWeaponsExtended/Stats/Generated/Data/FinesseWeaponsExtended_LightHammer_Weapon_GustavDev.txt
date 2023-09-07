@@ -1,0 +1,9 @@
+new entry "UND_DuergarBlacksmithHammer"
+type "Weapon"
+using "WPN_LightHammer_1"
+data "RootTemplate" "733a70a1-2e0f-46f4-aca1-037c0335dc72"
+data "ValueUUID" "86e7e503-a225-4b48-819e-2e24de1f904a"
+data "Rarity" "Uncommon"
+data "Boosts" "UnlockSpell(Target_UND_Smite_Searing_DuergarBlacksmithHammer)"
+data "Unique" "1"
+

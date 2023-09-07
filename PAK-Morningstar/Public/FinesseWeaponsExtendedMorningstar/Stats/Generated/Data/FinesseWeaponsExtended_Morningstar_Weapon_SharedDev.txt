@@ -1,0 +1,9 @@
+new entry "MAG_TWN_Taxblade_Morningstar"
+type "Weapon"
+using "WPN_Morningstar_1"
+data "RootTemplate" "12e19834-cf53-4207-93c3-5f0facef5889"
+data "ValueUUID" "9b6a4ab2-323b-4030-89ab-030252bb6214"
+data "Rarity" "Rare"
+data "BoostsOnEquipMainHand" "UnlockSpell(Target_HeartStopper);UnlockSpell(Target_ConcussiveSmash);UnlockSpell(Target_MAG_WeaponAction_Taxblade)"
+data "PassivesOnEquip" "MAG_TWN_Tollhouse_Fortune_Morningstar_Passive"
+

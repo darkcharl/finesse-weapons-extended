@@ -1,0 +1,5 @@
+new entry "WPN_Sahuagin_Longbow"
+type "Weapon"
+using "WPN_Longbow"
+data "RootTemplate" "2b72f224-a182-43c7-97e9-dc9a6ba4f9f5"
+

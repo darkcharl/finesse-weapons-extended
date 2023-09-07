@@ -1,0 +1,33 @@
+new entry "WPN_SkullFlail"
+type "Weapon"
+using "WPN_Flail"
+data "RootTemplate" "4c86f6ac-5829-41f2-a3f0-d3e893334961"
+
+new entry "WPN_SkullFlail_1"
+type "Weapon"
+using "WPN_Flail_1"
+data "RootTemplate" "05ca18da-41f4-4385-b370-0f75a989e119"
+data "DefaultBoosts" "WeaponEnchantment(1);WeaponProperty(Magical);WeaponDamage(1d6, Necrotic)"
+
+new entry "WPN_Flail_Air_Myrmidon"
+type "Weapon"
+using "WPN_Flail"
+data "RootTemplate" "71f5b932-137f-4e05-9392-e6b921e3aca6"
+data "Boosts" "UnlockSpell(Target_LightningStrike_Myrmidon_Air)"
+data "BoostsOnEquipMainHand" ""
+data "Weapon Properties" "Finesse;Melee"
+
+new entry "WPN_Flail_Air_Myrmidon_ConjureElemental"
+type "Weapon"
+using "WPN_Flail_Air_Myrmidon"
+data "RootTemplate" "8f8ad4f1-ee45-45f5-9368-3da979ada65a"
+data "DefaultBoosts" "WeaponDamage(1d8, Lightning);WeaponEnchantment(3);WeaponProperty(Magical)"
+
+new entry "WPN_Flail_Air_Myrmidon_Wildshape"
+type "Weapon"
+using "WPN_Flail_Air_Myrmidon"
+data "RootTemplate" "229dd0c4-6b13-4dbd-be48-0fedf292700a"
+data "DefaultBoosts" "WeaponDamage(1d8, Lightning);WeaponEnchantment(3);WeaponProperty(Magical)"
+data "Boosts" "UnlockSpell(Target_LightningStrike_Myrmidon_Air)"
+data "Weapon Properties" "Finesse;Melee"
+

@@ -1,0 +1,21 @@
+new entry "WPN_Trident_Water_Myrmidon"
+type "Weapon"
+using "WPN_Trident"
+data "RootTemplate" "c818edc1-85c4-4c4b-bd62-03ba59265922"
+data "Boosts" "UnlockSpell(Target_FreezingStrike_Myrmidon_Water)"
+data "BoostsOnEquipMainHand" ""
+data "Weapon Properties" "Finesse;Melee;NoDualWield;Versatile"
+
+new entry "WPN_Trident_Water_Myrmidon_ConjureElemental"
+type "Weapon"
+using "WPN_Trident_Water_Myrmidon"
+data "RootTemplate" "ba86b029-9232-4ad2-9e2d-9edcdd1d728b"
+data "DefaultBoosts" "WeaponDamage(1d6, Cold);WeaponEnchantment(3);WeaponProperty(Magical)"
+
+new entry "WPN_Trident_Water_Myrmidon_WildShape"
+type "Weapon"
+using "WPN_Trident_Water_Myrmidon"
+data "RootTemplate" "639a6279-f487-4783-9381-493f63e66ade"
+data "DefaultBoosts" "WeaponDamage(1d6, Cold);WeaponEnchantment(3);WeaponProperty(Magical)"
+data "Boosts" "UnlockSpell(Target_FreezingStrike_Wildshape_Myrmidon_Water)"
+

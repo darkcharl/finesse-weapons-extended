@@ -1,4 +1,3 @@
-// referencing this with the permission of AnteMaxx the creator and maintainer of Basket of Equipment
 new entry "AMX_GREATSWORD_PALADIN_RADIANT_1A"
 type "Weapon"
 using "WPN_Greatsword"

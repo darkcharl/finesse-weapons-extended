@@ -1,0 +1,10 @@
+new entry "UND_SharranCrossbow"
+type "Weapon"
+using "WPN_LightCrossbow_1"
+data "RootTemplate" "43b7fbf5-7f6e-4e9e-bce7-c679eea44593"
+data "ItemGroup" ""
+data "ValueUUID" "86e7e503-a225-4b48-819e-2e24de1f904a"
+data "Rarity" "Uncommon"
+data "DefaultBoosts" "WeaponEnchantment(1);WeaponProperty(Magical)"
+data "Unique" "1"
+

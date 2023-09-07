@@ -1,0 +1,11 @@
+new entry "WPN_Watcher_Greatsword"
+type "Weapon"
+using "WPN_Greatsword"
+data "RootTemplate" "c25e9381-7fbd-4e07-9383-9df8aa43d4ed"
+data "UseConditions" "Tagged('STEEL_WATCHER', context.Source)"
+data "Damage" "3d12"
+data "Weight" "100"
+data "GameSize" "Huge"
+data "BoostsOnEquipMainHand" ""
+data "Weapon Properties" "Finesse;Heavy;Melee;NotSheathable"
+

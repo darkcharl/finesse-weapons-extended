@@ -1,0 +1,7 @@
+new entry "WPN_Club_WoodWoad_Conjure"
+type "Weapon"
+using "WPN_WoodWoad_Club"
+data "Boosts" ""
+data "BoostsOnEquipMainHand" ""
+data "PassivesOnEquip" "WoodWoad_MagicClub"
+

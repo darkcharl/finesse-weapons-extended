@@ -1,0 +1,38 @@
+new entry "WPN_Bonesaw"
+type "Weapon"
+using "WPN_Longsword"
+data "RootTemplate" "b9739be6-7c2b-4fe9-be36-13ff1094e79c"
+data "Boosts" "IF (Tagged('ACT2_TWN_HOSPITAL_NURSE',context.Source)):UnlockSpell(Target_SurgeryEnabler_Bonesaw_Nurse); IF (Tagged('ACT2_TWN_HOSPITAL_NURSE',context.Source)):CharacterWeaponDamage(1d6,Necrotic)"
+data "BoostsOnEquipMainHand" ""
+
+new entry "WPN_Longsword_GuardianOfFaith_Good"
+type "Weapon"
+using "WPN_Longsword"
+data "RootTemplate" "dd0e60fd-a334-411b-97cf-fa6a015c578b"
+data "WeaponRange" "250"
+data "WeaponFunctors" ""
+data "BoostsOnEquipMainHand" ""
+data "Weapon Properties" "Dippable;Finesse;Melee;Unstowable;Versatile"
+
+new entry "WPN_Longsword_GuardianOfFaith_Neutral"
+type "Weapon"
+using "WPN_Longsword_GuardianOfFaith_Good"
+data "RootTemplate" "82d42ba1-5488-49a7-b4db-32332cee7521"
+
+new entry "WPN_Longsword_GuardianOfFaith_Evil"
+type "Weapon"
+using "WPN_Longsword_GuardianOfFaith_Good"
+data "RootTemplate" "083ddacf-e03c-4681-887b-80dee8158b26"
+
+new entry "WPN_Katana"
+type "Weapon"
+using "WPN_Longsword_1"
+data "RootTemplate" "7050c02e-f0e1-46b8-9400-2514805ecd2e"
+data "BoostsOnEquipMainHand" "UnlockSpell(Target_OpeningAttack);UnlockSpell(Target_Slash_New);UnlockSpell(Rush_SpringAttack);"
+data "Weapon Properties" "Dippable;Finesse;Melee;Versatile"
+
+new entry "WPN_DeathKnight_Longsword"
+type "Weapon"
+using "WPN_Longsword"
+data "RootTemplate" "a4338d7c-5b70-4076-9711-d3803fab2e1b"
+

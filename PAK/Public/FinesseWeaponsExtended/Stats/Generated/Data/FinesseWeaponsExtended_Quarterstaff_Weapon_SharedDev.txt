@@ -1,0 +1,19 @@
+new entry "WPN_Quaterstaff_Mindflayer"
+type "Weapon"
+using "WPN_Quarterstaff"
+data "RootTemplate" "f606e1cb-b6ad-4787-a633-d74c480e4eea"
+
+new entry "WPN_Quaterstaff_Dryad"
+type "Weapon"
+using "WPN_Quarterstaff"
+data "RootTemplate" "36aab945-ad5d-46b5-95ed-ab9cf1a5a228"
+
+new entry "WPN_Quaterstaff_Dryad_ConjureWoodlandBeings"
+type "Weapon"
+using "WPN_Quarterstaff"
+data "RootTemplate" "b61f3c6e-a224-4af8-ad16-51b3799e7715"
+data "WeaponFunctors" "ApplyStatus(ENSNARED,100,1,,,,not SavingThrow(Ability.Dexterity,13))"
+data "DefaultBoosts" "WeaponEnchantment(1);WeaponProperty(Magical)"
+data "VersatileDamage" "3d6"
+data "Weapon Properties" "Dippable;Finesse;Melee;Versatile"
+

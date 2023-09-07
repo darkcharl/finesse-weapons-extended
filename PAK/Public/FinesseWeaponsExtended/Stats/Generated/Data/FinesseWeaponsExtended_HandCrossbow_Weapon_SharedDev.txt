@@ -1,0 +1,9 @@
+new entry "WPN_Orthon_Crossbow"
+type "Weapon"
+using "WPN_HandCrossbow"
+data "RootTemplate" "f554e750-4a86-45d7-b1a5-027e27df55ef"
+data "UseConditions" "IsNotHumanoid(context.Source)"
+data "Damage" "2d10"
+data "Boosts" ""
+data "BoostsOnEquipMainHand" ""
+

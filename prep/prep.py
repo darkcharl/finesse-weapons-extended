@@ -1,10 +1,46 @@
 #!/usr/bin/env python
 
-""" Script to modify contents of character file """
+""" Script to alter weapon properties """
 
 import os
 import re
 import sys
+
+enabled_weapons = [
+    "Battleaxe",        # versatile
+    "Club",             # light
+    # "Dagger",         # finesse
+    # "Dart",           # finesse, two handed
+    "Flail",            # n/a
+    "Glaive",           # heavy, two handed
+    "Greataxe",         # heavy, two handed
+    "Greatclub",        # two handed
+    "Greatsword",       # heavy, two handed
+    "Halberd",          # heavy, reach, two handed
+    "HandCrossbow",     # light
+    "Handaxe",          # light, thrown
+    "HeavyCrossbow",    # heavy, two handed
+    "Javelin",          # thrown
+    "LightCrossbow",    # two handed
+    "LightHammer",      # light
+    "Longbow",          # heavy, two handed
+    "Longsword",        # versatile
+    "Mace",             # n/a
+    "Maul",             # heavy, two handed
+    "Morningstar",      # n/a
+    "Pike",             # heavy, reach, two handed
+    "Quarterstaff",     # versatile
+    # "Rapier",         # finesse
+    # "Scimitar",       # finesse
+    "Shortbow",         # two handed
+    # "Shortsword",     # finesse, light
+    "Sickle",           # light
+    "Sling",            # n/a
+    "Spear",            # versatile
+    "Trident",          # thrown, versatile
+    "WarPick",          # n/a
+    "Warhammer",        # versatile
+]
 
 
 def usage():
@@ -23,14 +59,10 @@ def get_options(args):
         print(f"No such file: {source}")
         sys.exit(2)
 
-    target = f"FinesseWeaponsExtended_{source}"
-    if nargs == 3:
-        target = sys.argv[2]
-
-    return source, target
+    return [source]
 
 
-def parse(source, weapons=["Club", "Flail", "Glaive", "Greataxe", "Handaxe", "Javelin", "LightHammer", "Longsword", "Pike", "Sickle", "Spear", "Trident", "Quarterstaff"]):
+def parse(source, weapons=enabled_weapons):
     data = {}
     wpn_group_re = "WPN_({})".format('|'.join(weapons))
     with open(source, "r") as f:
@@ -42,34 +74,48 @@ def parse(source, weapons=["Club", "Flail", "Glaive", "Greataxe", "Handaxe", "Ja
             if len(lines) < 3:
                 continue
 
-            """ Obtain item key """
+            """ Obtain item weapon_name """
             m = re.match(r'new entry "(?P<name>[^"]+)"', lines[0])
             if not m:
-                print(f"parsing issue in block")
+                print(f" [!] parsing issue in block")
+                print(block)
+                print()
                 continue
-            key = m.group('name')
+            weapon_name = m.group('name')
 
             """ Direct match """
-            if re.match(wpn_group_re, key):
-                data[key] = lines
+            m = re.match(wpn_group_re, weapon_name)
+            if m:
+                weapon_type = m.group(1)
+                # print(f" [D] weapon found directly: {weapon_name}, {weapon_type}")
+                if not data.get(weapon_type, None):
+                    data[weapon_type] = {}
+
+                data[weapon_type][weapon_name] = lines
                 continue
 
-            """ Skip internal """
-            if key[0] == "_" or key == "NoWeapon":
+            """ Skip internal weapons """
+            if weapon_name[0] == "_" or weapon_name == "NoWeapon":
                 continue
 
             """ Skip non-weapons """
             if not lines[1] == 'type "Weapon"':
-                print(f"{key} not weapon")
+                print(f"{weapon_name} not weapon")
 
             """ Skip unimplemented, if using inheritance  """
+            weapon_type = None
             if lines[2].find('using') > -1:
                 wpn_re = f"using \"{wpn_group_re}.*\""
                 m_type = re.match(wpn_re, lines[2])
                 if not m_type:
                     continue
+                weapon_type = m_type.group(1)
+                # print(f" [D] weapon found via using: {weapon_name}, {weapon_type}")
 
-            data[key] = lines
+            if not data.get(weapon_type, None):
+                data[weapon_type] = {}
+
+            data[weapon_type][weapon_name] = lines
 
     return data
 
@@ -81,21 +127,23 @@ def add_finesse(props):
     return f'data "Weapon Properties" "{properties}"'
 
 
-def prepare_file(source, target, prop_re=r'data "Weapon Properties" "(?P<props>[^=]+)"'):
+def prepare_file(source, prefix="FinesseWeaponsExtended", prop_re=r'data "Weapon Properties" "(?P<props>[^=]+)"'):
     """ Prepares new weapon file """
     data = parse(source)
-    with open(target, "w") as f:
-        for k, v in data.items():
-            print(f"Processing {k}")
-            for line in v:
-                m = re.match(prop_re, line)
-                if m:
-                    props = m.group('props')
-                    line = add_finesse(props)
-
-                f.write(line + '\n')
-
-            f.write('\n')
+    for weapon_type in data.keys():
+        weapon_file = f"{prefix}_{weapon_type}_{source}"
+        print(f"Writing: {weapon_type} to {weapon_file}")
+        with open(weapon_file, "w") as f:
+            for weapon_name, lines in data[weapon_type].items():
+                print(f"Processing {weapon_name}")
+                for line in lines:
+                    m = re.match(prop_re, line)
+                    if m:
+                        props = m.group('props')
+                        line = add_finesse(props)
+                    f.write(line + '\n')
+                f.write('\n')
+        print()
 
 
 if __name__ == "__main__":

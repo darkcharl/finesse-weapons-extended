@@ -1,0 +1,18 @@
+new entry "WPN_Brewer_Mace"
+type "Weapon"
+using "WPN_Mace"
+data "RootTemplate" "96df6fd6-a688-47ab-b448-0b6d27d1cf1d"
+data "UseConditions" "Tagged('BREWER_CREATURE', context.Source)"
+data "Damage" "1d8"
+data "WeaponRange" "220"
+data "Boosts" ""
+data "BoostsOnEquipMainHand" ""
+
+new entry "WPN_Mace_Deva"
+type "Weapon"
+using "WPN_Mace"
+data "RootTemplate" "c0fb0a11-1f29-470c-a95b-102377ef2356"
+data "Damage Type" "Bludgeoning"
+data "DefaultBoosts" "WeaponDamage(4d8, Radiant)"
+data "BoostsOnEquipMainHand" "UnlockSpell(Target_ConcussiveSmash_Deva)"
+

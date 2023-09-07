@@ -1,0 +1,16 @@
+new entry "WPN_Apostle_Scythe"
+type "Weapon"
+using "WPN_Glaive"
+data "RootTemplate" "3112f0f5-4073-45d2-8e37-eeafa1558896"
+data "UseConditions" "Tagged('APOSTLE_OF_MYRKUL', context.Source)"
+data "Damage" "2d12"
+data "WeaponRange" "500"
+data "Boosts" "UnlockSpell(Zone_Cleave_Apostle)"
+data "BoostsOnEquipMainHand" ""
+data "BoostsOnEquipOffHand" ""
+
+new entry "WPN_Glaive_Cambion"
+type "Weapon"
+using "WPN_Glaive"
+data "BoostsOnEquipMainHand" "UnlockSpell(Rush_SpringAttack)"
+

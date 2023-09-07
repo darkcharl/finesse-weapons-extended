@@ -1,0 +1,9 @@
+new entry "WPN_Watcher_HeavyCrossbow"
+type "Weapon"
+using "WPN_HeavyCrossbow"
+data "RootTemplate" "e2391c41-845c-4d8e-9aba-d2392e193bfd"
+data "UseConditions" "Tagged('STEEL_WATCHER', context.Source)"
+data "Damage" "3d10"
+data "Weight" "50"
+data "GameSize" "Huge"
+
