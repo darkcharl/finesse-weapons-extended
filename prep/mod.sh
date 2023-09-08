@@ -72,7 +72,7 @@ function updateinfo() {
     echo " [!] fatal: UUID for mod not found in metafile ${metafile}"
     exit 2
   fi
-  sed -i 's#\(.*"UUID": \)"\([^"]*\)"\(.*\)#\1"\2"\3#' "${infofile}"
+  sed -i 's#\(.*"UUID": \)"\([^"]*\)"\(.*\)#\1"'"${uuid}"'"\3#' "${infofile}"
 
   # Update mod name and description
   sed -i "s#\(FinesseWeaponsExtended\)#\1${weaponname}#" "${infofile}"
