@@ -86,9 +86,10 @@ done
 
 for WEAPON in "${WEAPONS[@]}"; do
   # Create mod PAK structure, if necessary
+  MOD_NAME="FinesseWeaponsExtended${WEAPON}"
   WEAPON_PAK_DIR="../PAK-${WEAPON}"
-  WEAPON_MODS_DIR="${WEAPON_PAK_DIR}/Mods"
-  WEAPON_DATA_DIR="${WEAPON_PAK_DIR}/Public/FinesseWeaponsExtended${WEAPON}/Stats/Generated/Data"
+  WEAPON_MODS_DIR="${WEAPON_PAK_DIR}/Mods/${MOD_NAME}"
+  WEAPON_DATA_DIR="${WEAPON_PAK_DIR}/Public/${MOD_NAME}/Stats/Generated/Data"
   ensuredir "${WEAPON_PAK_DIR}"
   ensuredir "${WEAPON_MODS_DIR}"
   ensuredir "${WEAPON_DATA_DIR}"
@@ -113,8 +114,8 @@ for WEAPON in "${WEAPONS[@]}"; do
   echo "Creating PAK for ${WEAPON}"
   WEAPON_PAK_DIR_FULL=$(readlink -f "${WEAPON_PAK_DIR}")
   WEAPON_RELEASE_DIR_FULL=$(readlink -f "${WEAPON_RELEASE_DIR}")
-  WEAPON_PAK="${WEAPON_RELEASE_DIR_FULL}/FinesseWeaponsExtended${WEAPON}.pak"
-  WEAPON_ZIP="${WEAPON_RELEASE_DIR_FULL}/FinesseWeaponsExtended${WEAPON}.zip"
+  WEAPON_PAK="${WEAPON_RELEASE_DIR_FULL}/${MOD_NAME}.pak"
+  WEAPON_ZIP="${WEAPON_RELEASE_DIR_FULL}/${MOD_NAME}.zip"
   "${DIVINE_EXE}" -g "bg3" --action "create-package" --source "${WEAPON_PAK_DIR_FULL}" --destination "${WEAPON_PAK}" -l "all"
 
   # Create ZIP
