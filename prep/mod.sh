@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DIVINE_EXE="/e/Modding/BG3/ExportTool-v1.18.5/Tools/divine.exe"
+DIVINE_EXE="/e/Modding/BG3/ExportTool-v1.18.7/Tools/divine.exe"
 UUIDGEN_EXE="/e/Modding/uuidgen.exe"
 ZIP_EXE="/c/Program Files/7-Zip/7z.exe"
 
